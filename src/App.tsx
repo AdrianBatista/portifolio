@@ -7,7 +7,7 @@ export default function App() {
   return (
     <>
       <ResponsiveAppBar />
-      <Panel>
+      <Panel canvas={true}>
         <Typography variant="h3" sx={{ color: "#DDD" }}>
           Adrian Batista
         </Typography>
