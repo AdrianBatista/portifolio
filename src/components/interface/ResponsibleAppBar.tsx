@@ -1,28 +1,41 @@
-import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
+import { ReactNode, useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
-import InboxIcon from "@mui/icons-material/Inbox";
-import MailIcon from "@mui/icons-material/Mail";
+import PublicIcon from "@mui/icons-material/Public";
+import HomeIcon from "@mui/icons-material/Home";
+import EmailIcon from "@mui/icons-material/Email";
+import InfoIcon from "@mui/icons-material/Info";
+import ViewListIcon from "@mui/icons-material/ViewList";
 import {
-  Divider,
+  AppBar,
+  Box,
+  Button,
+  Container,
+  Toolbar,
+  IconButton,
   List,
   ListItem,
   ListItemButton,
   ListItemIcon,
   ListItemText,
   SwipeableDrawer,
+  Typography,
 } from "@mui/material";
 
-const pages = ["Products", "Pricing", "Blog"];
+type Page = {
+  title: string;
+  url: string;
+  icon?: ReactNode;
+};
+
+const pages: Page[] = [
+  { title: "Home", url: "/", icon: <HomeIcon /> },
+  { title: "Projects", url: "/projects", icon: <ViewListIcon /> },
+  { title: "About", url: "/about", icon: <InfoIcon /> },
+  { title: "Contact", url: "/contact", icon: <EmailIcon /> },
+];
 
 function ResponsiveAppBar() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -75,11 +88,12 @@ function ResponsiveAppBar() {
           >
             {pages.map((page) => (
               <Button
-                key={page}
+                key={page.title}
                 onClick={handleDrawerClose}
+                href={page.url}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
-                {page}
+                {page.title}
               </Button>
             ))}
           </Box>
@@ -120,6 +134,7 @@ function ResponsiveAppBar() {
             sx={{
               display: "flex",
               alignItems: "center",
+              mr: 1,
             }}
           >
             <Typography
@@ -154,26 +169,11 @@ function ResponsiveAppBar() {
           onClose={handleDrawerClose}
         >
           <List>
-            {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-              <ListItem key={text} disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </List>
-          <Divider />
-          <List>
-            {["All mail", "Trash", "Spam"].map((text, index) => (
-              <ListItem key={text} disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} />
+            {pages.map((page, index) => (
+              <ListItem key={index} disablePadding>
+                <ListItemButton href={page.url}>
+                  <ListItemIcon>{page.icon ?? <PublicIcon />}</ListItemIcon>
+                  <ListItemText primary={page.title} />
                 </ListItemButton>
               </ListItem>
             ))}
