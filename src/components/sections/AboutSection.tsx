@@ -5,7 +5,6 @@ import {
   CardMedia,
   Container,
   Divider,
-  Paper,
   Typography,
 } from "@mui/material";
 import Panel from "../interface/Panel";
