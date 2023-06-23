@@ -2,6 +2,8 @@ import Panel from "../interface/Panel";
 import { Typography, Divider, Container } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import Card from "../interface/Card";
+import { gql, useQuery } from "@apollo/client";
+import { useEffect, useState } from "react";
 
 type TProject = {
   title: string;
@@ -10,31 +12,29 @@ type TProject = {
   link?: string;
 };
 
-const projects: TProject[] = [
-  {
-    title: "IEEE Ilha Solteira",
-    description:
-      "This website was developed to a IEEE student branch in 2016. This was my first experience in this area. This site also has a panel where some users can create new posts and register new courses.",
-    image: "/images/isaieee.png",
-    link: "https://isaieee.com",
-  },
-  {
-    title: "Adrian's Portfolio",
-    description:
-      "This is the current website that I made to shows my last projects. This site uses the React Framework and MUI library.",
-    image: "/images/portfolio.png",
-    link: "https://adrianbatista.com",
-  },
-  {
-    title: "Professional Expeience",
-    description:
-      "Since 2021 I work at Hitachi Energy Brasil company. There I do a Full-Stack Software Development, so in this time I've made many programs that I can not show here.",
-    image: "/images/hitachi.png",
-    link: "https://adrianbatista.com",
-  },
-];
+const GET_PROJECTS = gql`
+  query {
+    allProjects {
+      id
+      title
+      description
+      image
+      link
+    }
+  }
+`;
 
 export default function ProjectSection() {
+  const [projects, setProjects] = useState<TProject[]>();
+  const { loading, error, data } = useQuery(GET_PROJECTS);
+
+  useEffect(() => {
+    if (loading === false) {
+      const databaseProjects: TProject[] = data.allProjects;
+      setProjects(databaseProjects);
+    }
+  }, [loading]);
+
   return (
     <Panel background={{ color: "#FEFEFE" }}>
       <Container sx={{ marginBlock: 3 }}>
@@ -42,13 +42,16 @@ export default function ProjectSection() {
           My Projects
         </Typography>
         <Divider />
-        <Grid container spacing={2} mt={1}>
-          {projects.map((project) => (
-            <Grid xs={12} sm={6} md={4}>
-              <Card {...project} />
-            </Grid>
-          ))}
-        </Grid>
+        {projects && (
+          <Grid container spacing={2} mt={1}>
+            {projects!.map((project, index) => (
+              <Grid xs={12} sm={6} md={4} key={index}>
+                <Card {...project} />
+              </Grid>
+            ))}
+          </Grid>
+        )}
+
         {/* <Typography
           mt={1}
           sx={{
