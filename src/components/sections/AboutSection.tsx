@@ -23,7 +23,7 @@ export default function AboutSection() {
           <CardMedia
             component="img"
             sx={{ width: { xs: "100%", md: "33%" } }}
-            image="/images/pc.jpg"
+            image="/images/adrian.png"
             alt="About Adrian Batista"
           />
           <Box sx={{ display: "flex", flexDirection: "column" }}>
