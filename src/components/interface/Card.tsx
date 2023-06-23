@@ -10,7 +10,7 @@ import MuiCard from "@mui/material/Card";
 
 export default function Card() {
   return (
-    <MuiCard sx={{ maxWidth: 345 }}>
+    <MuiCard>
       <CardMedia
         sx={{ height: 140 }}
         image="/images/pc.jpg"

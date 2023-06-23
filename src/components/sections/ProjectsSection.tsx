@@ -6,7 +6,7 @@ import Card from "../interface/Card";
 export default function ProjectSection() {
   return (
     <Panel background={{ color: "#FEFEFE" }}>
-      <Container sx={{ p: 3, m: 3 }}>
+      <Container sx={{ marginBlock: 3 }}>
         <Typography variant="h4" mb={1}>
           My Projects
         </Typography>

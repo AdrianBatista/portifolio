@@ -1,5 +1,6 @@
 import "./App.css";
 import ResponsiveAppBar from "./components/interface/ResponsibleAppBar";
+import AboutSection from "./components/sections/AboutSection";
 import CoverSection from "./components/sections/CoverSection";
 import ProjectSection from "./components/sections/ProjectsSection";
 
@@ -9,6 +10,7 @@ export default function App() {
       <ResponsiveAppBar />
       <CoverSection />
       <ProjectSection />
+      <AboutSection />
     </>
   );
 }
