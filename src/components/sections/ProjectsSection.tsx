@@ -1,7 +1,38 @@
 import Panel from "../interface/Panel";
-import { Typography, Divider, Container, Button } from "@mui/material";
+import { Typography, Divider, Container } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import Card from "../interface/Card";
+
+type TProject = {
+  title: string;
+  description: string;
+  image: string;
+  link?: string;
+};
+
+const projects: TProject[] = [
+  {
+    title: "IEEE Ilha Solteira",
+    description:
+      "This website was developed to a IEEE student branch in 2016. This was my first experience in this area. This site also has a panel where some users can create new posts and register new courses.",
+    image: "/images/isaieee.png",
+    link: "https://isaieee.com",
+  },
+  {
+    title: "Adrian's Portfolio",
+    description:
+      "This is the current website that I made to shows my last projects. This site uses the React Framework and MUI library.",
+    image: "/images/portfolio.png",
+    link: "https://adrianbatista.com",
+  },
+  {
+    title: "Professional Expeience",
+    description:
+      "Since 2021 I work at Hitachi Energy Brasil company. There I do a Full-Stack Software Development, so in this time I've made many programs that I can not show here.",
+    image: "/images/hitachi.png",
+    link: "https://adrianbatista.com",
+  },
+];
 
 export default function ProjectSection() {
   return (
@@ -12,20 +43,13 @@ export default function ProjectSection() {
         </Typography>
         <Divider />
         <Grid container spacing={2} mt={1}>
-          <Grid xs={12} sm={6} md={4} xl={3}>
-            <Card />
-          </Grid>
-          <Grid xs={12} sm={6} md={4} xl={3}>
-            <Card />
-          </Grid>
-          <Grid xs={12} sm={6} md={4} xl={3}>
-            <Card />
-          </Grid>
-          <Grid xs={12} sm={6} md={4} xl={3}>
-            <Card />
-          </Grid>
+          {projects.map((project) => (
+            <Grid xs={12} sm={6} md={4}>
+              <Card {...project} />
+            </Grid>
+          ))}
         </Grid>
-        <Typography
+        {/* <Typography
           mt={1}
           sx={{
             display: "flex",
@@ -52,7 +76,7 @@ export default function ProjectSection() {
           >
             See more &#10132;
           </Button>
-        </Typography>
+        </Typography> */}
       </Container>
     </Panel>
   );

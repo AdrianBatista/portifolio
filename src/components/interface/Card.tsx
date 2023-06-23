@@ -8,26 +8,31 @@ import {
 
 import MuiCard from "@mui/material/Card";
 
-export default function Card() {
+type TProject = {
+  title: string;
+  description: string;
+  image: string;
+  link?: string;
+};
+
+export default function Card({ title, description, link, image }: TProject) {
   return (
     <MuiCard>
-      <CardMedia
-        sx={{ height: 140 }}
-        image="/images/pc.jpg"
-        title="green iguana"
-      />
-      <CardContent>
+      <CardMedia sx={{ height: 140 }} image={image} title="green iguana" />
+      <CardContent sx={{ height: { sm: "150px" } }}>
         <Typography gutterBottom variant="h5" component="div">
-          Lizard
+          {title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+          {description}
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+        {link && (
+          <Button size="small" href={link} target="_blank">
+            Visit
+          </Button>
+        )}
       </CardActions>
     </MuiCard>
   );
