@@ -1,6 +1,6 @@
 import ResponsiveAppBar from "./components/interface/ResponsibleAppBar";
 import "./App.css";
-import { Paper, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import Panel from "./components/interface/Panel";
 import ProjectSection from "./components/sections/ProjectsSection";
 

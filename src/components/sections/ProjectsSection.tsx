@@ -1,5 +1,5 @@
 import Panel from "../interface/Panel";
-import { Paper, Typography, Divider, Container } from "@mui/material";
+import { Typography, Divider, Container } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import Card from "../interface/Card";
 
