@@ -9,10 +9,18 @@ export default function App() {
   return (
     <>
       <ResponsiveAppBar />
-      <CoverSection />
-      <ProjectSection />
-      <AboutSection />
-      <ContactSection />
+      <div id="home">
+        <CoverSection />
+      </div>
+      <div id="projects">
+        <ProjectSection />
+      </div>
+      <div id="about">
+        <AboutSection />
+      </div>
+      <div id="contact">
+        <ContactSection />
+      </div>
     </>
   );
 }

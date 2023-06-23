@@ -28,10 +28,10 @@ type Page = {
 };
 
 const pages: Page[] = [
-  { title: "Home", url: "/", icon: <HomeIcon /> },
-  { title: "Projects", url: "/projects", icon: <ViewListIcon /> },
-  { title: "About", url: "/about", icon: <InfoIcon /> },
-  { title: "Contact", url: "/contact", icon: <EmailIcon /> },
+  { title: "Home", url: "/#home", icon: <HomeIcon /> },
+  { title: "Projects", url: "/#projects", icon: <ViewListIcon /> },
+  { title: "About", url: "/#about", icon: <InfoIcon /> },
+  { title: "Contact", url: "/#contact", icon: <EmailIcon /> },
 ];
 
 function ResponsiveAppBar() {
@@ -171,7 +171,7 @@ function ResponsiveAppBar() {
           <List>
             {pages.map((page, index) => (
               <ListItem key={index} disablePadding>
-                <ListItemButton href={page.url}>
+                <ListItemButton href={page.url} onClick={handleDrawerClose}>
                   <ListItemIcon>{page.icon ?? <PublicIcon />}</ListItemIcon>
                   <ListItemText primary={page.title} />
                 </ListItemButton>
