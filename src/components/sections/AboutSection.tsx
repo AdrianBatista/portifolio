@@ -14,7 +14,11 @@ export default function AboutSection() {
     <Panel background={{ color: "#FEFEFE" }}>
       <Container>
         <Card
-          sx={{ display: "flex", flexDirection: { xs: "column", md: "row" } }}
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", md: "row" },
+            mb: 2,
+          }}
         >
           <CardMedia
             component="img"
@@ -86,66 +90,6 @@ export default function AboutSection() {
             </CardContent>
           </Box>
         </Card>
-
-        {/* <Paper sx={{ p: 2 }}>
-          <Typography>
-            &nbsp;&nbsp;&nbsp;&nbsp;Olá, eu sou Adrian Felipe Nogueira Batista,
-            um engenheiro elétrico que encontrou sua verdadeira paixão na área
-            de desenvolvimento. Com dois anos de experiência, tenho me dedicado
-            ao desenvolvimento full-stack, com ênfase nas tecnologias React e
-            Laravel. Trabalho atualmente na empresa Hitachi Energy como Analista
-            de Desenvolvimento de Software Pleno.
-            <br />
-            <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;Meu trabalho é impulsionado pela busca
-            incansável da qualidade. Acredito que entregar um produto
-            excepcional é essencial para alcançar o sucesso. Através da minha
-            experiência, tenho desenvolvido habilidades e competências que me
-            permitem criar soluções eficientes e funcionais.
-            <br />
-            <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;Meus valores e princípios profissionais são
-            fundamentais para guiar meu trabalho diário. Acredito na
-            transparência, na honestidade e no respeito mútuo, tanto com meus
-            colegas de equipe quanto com os clientes. Minha abordagem se baseia
-            na comunicação clara e na compreensão das necessidades de cada
-            projeto.
-            <br />
-            <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;Meus objetivos profissionais são ambiciosos.
-            Busco constantemente expandir minha base de clientes, fornecendo
-            serviços de qualidade e excedendo as expectativas. Cada projeto é
-            uma oportunidade para crescer e aprimorar minhas habilidades, sempre
-            visando o sucesso do cliente.
-            <br />
-            <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;Embora não possua especializações ou
-            certificações específicas, minhas conquistas falam por si. Entre
-            elas, destaco o desenvolvimento de um site para um grupo da
-            faculdade e a criação de diversas aplicações no meu trabalho atual.
-            Essas experiências consolidaram minha expertise técnica e minha
-            capacidade de trabalhar em equipe.
-            <br />
-            <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;Meu verdadeiro entusiasmo está em projetos
-            front-end, onde posso dar vida a designs inovadores e cativantes. A
-            criação de interfaces responsivas e intuitivas é um dos meus pontos
-            fortes, proporcionando uma experiência agradável aos usuários.
-            <br />
-            <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;Desafios são oportunidades para mim. Abraçar
-            o desconhecido me permite sair da minha zona de conforto e aprender
-            constantemente. Encaro os obstáculos como chances de crescimento e
-            aprimoramento, buscando soluções criativas e eficazes.
-            <br />
-            <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;Estou animado para iniciar novas parcerias e
-            colaborar em projetos desafiadores. Se você busca um desenvolvedor
-            full-stack apaixonado por qualidade, comprometido com o sucesso do
-            cliente e sempre em busca de crescimento, entre em contato comigo.
-            Juntos, podemos criar algo incrível.
-          </Typography>
-        </Paper> */}
       </Container>
     </Panel>
   );

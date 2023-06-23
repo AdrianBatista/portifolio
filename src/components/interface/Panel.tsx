@@ -6,6 +6,7 @@ type TBackground = {
   type?: string;
   url?: string;
   color?: string;
+  alpha?: number;
 };
 
 type Props = {
@@ -53,7 +54,12 @@ export default function Panel({ children, canvas, background }: Props) {
               };
               return background?.color
                 ? style
-                : { ...style, backgroundColor: "rgba(0,0,0,0.9)" };
+                : {
+                    ...style,
+                    backgroundColor: `rgba(0,0,0,${
+                      background?.alpha ?? "0.9"
+                    })`,
+                  };
             }}
           >
             {canvas ? <CanvaBackground /> : <></>}

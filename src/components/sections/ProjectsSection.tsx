@@ -32,7 +32,26 @@ export default function ProjectSection() {
             justifyContent: { xs: "center", sm: "flex-end" },
           }}
         >
-          <Button href="/projects">See more &#10132;</Button>
+          <Button
+            href="/projects"
+            variant="contained"
+            sx={{
+              background: "#FEFEFE",
+              color: "#1976D4",
+              width: "100%",
+              display: { xs: "block", md: "none" },
+            }}
+          >
+            See more &#10132;
+          </Button>
+          <Button
+            href="/projects"
+            sx={{
+              display: { xs: "none", md: "block" },
+            }}
+          >
+            See more &#10132;
+          </Button>
         </Typography>
       </Container>
     </Panel>
