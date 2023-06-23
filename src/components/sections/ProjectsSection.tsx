@@ -26,7 +26,7 @@ const GET_PROJECTS = gql`
 
 export default function ProjectSection() {
   const [projects, setProjects] = useState<TProject[]>();
-  const { loading, error, data } = useQuery(GET_PROJECTS);
+  const { loading, data } = useQuery(GET_PROJECTS);
 
   useEffect(() => {
     if (loading === false) {
