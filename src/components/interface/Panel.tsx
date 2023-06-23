@@ -2,12 +2,19 @@ import { ReactNode } from "react";
 import { Box } from "@mui/material";
 import CanvaBackground from "./CanvaBackground";
 
+type TBackground = {
+  type?: string;
+  url?: string;
+  color?: string;
+};
+
 type Props = {
   children: ReactNode;
   canvas?: boolean;
+  background?: TBackground;
 };
 
-export default function Panel({ children, canvas }: Props) {
+export default function Panel({ children, canvas, background }: Props) {
   return (
     <>
       <Box
@@ -17,23 +24,36 @@ export default function Panel({ children, canvas }: Props) {
         }}
       >
         <Box
-          sx={{
-            backgroundImage: "url('/images/pc.jpg')",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-            backgroundSize: "cover",
-            borderRadius: "none",
-          }}
+          sx={
+            background?.type == "image"
+              ? {
+                  backgroundImage: `url(${
+                    background?.url ?? "/images/pc.jpg"
+                  })`,
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "center",
+                  backgroundSize: "cover",
+                  borderRadius: "none",
+                }
+              : {
+                  backgroundColor: background?.color ?? "#CCC",
+                }
+          }
         >
           <Box
-            sx={{
-              width: "100vw",
-              height: "100vh",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              backgroundColor: "rgba(0,0,0,0.9)",
-              borderRadius: "none",
+            sx={() => {
+              var style = {
+                width: "100vw",
+                minHeight: "100vh",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                borderRadius: "none",
+                backgroundColor: "",
+              };
+              return background?.color
+                ? style
+                : { ...style, backgroundColor: "rgba(0,0,0,0.9)" };
             }}
           >
             {canvas ? <CanvaBackground /> : <></>}
@@ -42,7 +62,7 @@ export default function Panel({ children, canvas }: Props) {
         <Box
           sx={{
             width: "100vw",
-            height: "100vh",
+            minHeight: "100vh",
             marginTop: "-100vh",
             display: "flex",
             justifyContent: "center",
